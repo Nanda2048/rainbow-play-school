@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +6,13 @@
 <title>Rainbow Play School</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
-
-<!-- AOS Animation CSS -->
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
 
 <style>
 body {
   margin:0;
   font-family:'Nunito',sans-serif;
-  background:#fdfcff;
+  background: linear-gradient(135deg,#f6f9ff,#eef1ff,#fdf6ff);
 }
 
 /* HEADER */
@@ -46,13 +43,8 @@ nav a:hover {background:#444;}
   text-align:center;
   padding:60px 20px;
 }
-.hero h2 {
-  font-size:32px;
-}
-.hero p {
-  font-size:18px;
-  color:#555;
-}
+.hero h2 {font-size:32px;}
+.hero p {font-size:18px;color:#555;}
 
 /* SECTION */
 .section {
@@ -60,12 +52,14 @@ nav a:hover {background:#444;}
   text-align:center;
 }
 
-/* CARDS */
+/* GRID */
 .grid {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
 }
+
+/* CARDS */
 .card {
   background:white;
   margin:15px;
@@ -80,16 +74,34 @@ nav a:hover {background:#444;}
   box-shadow:0 15px 30px rgba(0,0,0,0.2);
 }
 
+/* SLIDER */
+.slider {
+  max-width:600px;
+  margin:auto;
+}
+.slide {
+  width:100%;
+  border-radius:15px;
+  display:none;
+}
+.slide.active {display:block;}
+
 /* GALLERY */
 .gallery {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-  padding:10px;
+  gap:20px;
+  padding:20px;
 }
 .gallery img {
   width:100%;
-  border-radius:15px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+.gallery img:hover {
+  transform:scale(1.05);
 }
 
 /* FORM */
@@ -115,23 +127,26 @@ button {
   color:white;
   border:none;
   border-radius:10px;
-  font-size:16px;
 }
 
-/* WHATSAPP BUTTON */
+/* FLOAT BUTTONS */
 .whatsapp {
- .call-btn {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background: #ff758c;
-  color: white;
-  padding: 14px 16px;
-  border-radius: 50px;
-  font-size: 18px;
-  text-decoration: none;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
- }
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  padding:14px;
+  color:white;
+  border-radius:50%;
+}
+.call-btn {
+  position:fixed;
+  bottom:80px;
+  right:20px;
+  background:#ff758c;
+  padding:14px;
+  color:white;
+  border-radius:50%;
 }
 
 /* FOOTER */
@@ -145,22 +160,18 @@ footer {
 </head>
 
 <body>
-<section id="contact" class="section" data-aos="fade-up">
-  <h2>Contact Us</h2>
-  <p>📍 Somandepalli, Penukonda, Sri Satya Sai - 515110</p>
-  <p>📞 <a href="tel:+918519854024" style="color:#ff758c; font-weight:bold;">Call Now</a></p>
-</section>
+
 <header data-aos="fade-down">
   <h1>🌈 Rainbow Play School</h1>
   <p>Fun • Safe • Creative Learning</p>
 </header>
 
 <nav>
-  <a href="#contact">Contact</a>
   <a href="#about">About</a>
-  <a href="#amenities">Amenities</a>
+  <a href="#amenities">Facilities</a>
   <a href="#gallery">Gallery</a>
   <a href="#admission">Admission</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <section class="hero" data-aos="fade-up">
@@ -170,25 +181,47 @@ footer {
 
 <section id="about" class="section" data-aos="fade-up">
   <h2>About Us</h2>
-  <p>We provide a joyful environment where children learn through play and creativity.</p>
+  <p>
+    At Rainbow Play School, we believe every child is unique and deserves a joyful learning environment.
+    We teach alphabets, numbers, and abacus basics through fun activities.
+    Children learn through storytelling, games, and hands-on interaction.
+    We provide a safe, caring environment where kids feel happy and confident.
+    Our goal is to build a strong foundation for their bright future.
+  </p>
 </section>
 
 <section id="amenities" class="section">
   <h2 data-aos="fade-up">Our Facilities</h2>
   <div class="grid">
-    <div class="card" data-aos="zoom-in">🎥 CCTV Security</div>
+    <div class="card" data-aos="zoom-in">🎥 CCTV Surveillance</div>
     <div class="card" data-aos="zoom-in">🛝 Play Area</div>
-    <div class="card" data-aos="zoom-in">👩‍🏫 Trained Staff</div>
-    <div class="card" data-aos="zoom-in">🎨 Activity Rooms</div>
+    <div class="card" data-aos="zoom-in">👩‍🏫 Caring Teachers</div>
+    <div class="card" data-aos="zoom-in">🎨 Activity Learning</div>
+    <div class="card" data-aos="zoom-in">🧮 Abacus Basics</div>
+    <div class="card" data-aos="zoom-in">📚 Rhymes & Stories</div>
   </div>
 </section>
 
+<!-- SLIDER -->
+<section class="section" data-aos="fade-up">
+  <h2>Our Activities</h2>
+  <div class="slider">
+    <img src="activity1.jpg" class="slide active">
+    <img src="activity2.jpg" class="slide">
+    <img src="activity3.jpg" class="slide">
+  </div>
+</section>
+
+<!-- GALLERY -->
 <section id="gallery" class="section">
-  <h2 data-aos="fade-up">Our Moments</h2>
-  <div class="gallery" data-aos="fade-up">
-    <img src="classroom.jpg">
-    <img src="kids.jpg">
-    <img src="activity.jpg">
+  <h2 data-aos="fade-up">Our Gallery</h2>
+  <div class="gallery">
+    <img src="classroom.jpg" onclick="openImage(this.src)">
+    <img src="kids.jpg" onclick="openImage(this.src)">
+    <img src="activity.jpg" onclick="openImage(this.src)">
+    <img src="activity1.jpg" onclick="openImage(this.src)">
+    <img src="activity2.jpg" onclick="openImage(this.src)">
+    <img src="activity3.jpg" onclick="openImage(this.src)">
   </div>
 </section>
 
@@ -204,27 +237,51 @@ footer {
   </form>
 </section>
 
-<a class="whatsapp" href="https://wa.me/918519854024" target="_blank">💬 Chat</a>
-  <a class="whatsapp" href="https://wa.me/918519854024" target="_blank">💬 Chat</a>
+<!-- CONTACT -->
+<section id="contact" class="section" data-aos="fade-up">
+  <h2>Contact Us</h2>
+  <p>📍 Somandepalli, Penukonda, Sri Satya Sai - 515110</p>
+  <p>📞 <a href="tel:+918519854024" style="color:#ff758c;font-weight:bold;">Call Now</a></p>
+</section>
 
+<a class="whatsapp" href="https://wa.me/918519854024">💬</a>
 <a class="call-btn" href="tel:+918519854024">📞</a>
 
 <footer data-aos="fade-up">
   <p>© 2026 Rainbow Play School</p>
 </footer>
 
-<!-- AOS Animation Script -->
+<!-- IMAGE POPUP -->
+<div id="popup" onclick="closeImage()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
+  <img id="popup-img" style="max-width:90%;max-height:90%;border-radius:15px;">
+</div>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({
-  duration:1000,
-  once:true
-});
+AOS.init({duration:1000, once:true});
 
 function sendToWhatsApp(e){
   e.preventDefault();
   let msg = `Admission Request:%0AChild: ${child.value}%0AAge: ${age.value}%0AParent: ${parent.value}%0APhone: ${phone.value}%0AAddress: ${address.value}`;
   window.open("https://wa.me/918519854024?text="+msg);
+}
+
+/* slider */
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+/* gallery popup */
+function openImage(src){
+  document.getElementById("popup").style.display="flex";
+  document.getElementById("popup-img").src=src;
+}
+function closeImage(){
+  document.getElementById("popup").style.display="none";
 }
 </script>
 
