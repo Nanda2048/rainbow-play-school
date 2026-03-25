@@ -1,1 +1,222 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rainbow Play School</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#fdf6f0;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(45deg,#ff6f61,#ffcc70);
+  color:white;
+  padding:20px;
+  text-align:center;
+  border-bottom-left-radius:30px;
+  border-bottom-right-radius:30px;
+}
+
+/* NAV */
+nav {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  background:#333;
+}
+nav a {
+  color:white;
+  padding:12px 15px;
+  text-decoration:none;
+}
+nav a:hover {background:#555;}
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:60px 20px;
+}
+.hero h2 {
+  font-size:28px;
+}
+.hero p {font-size:18px;}
+
+/* SECTIONS */
+.section {
+  padding:30px 20px;
+  text-align:center;
+}
+
+/* CARDS */
+.card {
+  background:white;
+  padding:15px;
+  margin:10px;
+  border-radius:15px;
+  display:inline-block;
+  width:260px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+.card:hover {
+  transform:translateY(-5px);
+}
+
+/* GALLERY */
+.gallery img {
+  width:90%;
+  max-width:280px;
+  margin:10px;
+  border-radius:15px;
+}
+
+/* FORM */
+form {
+  background:white;
+  padding:20px;
+  max-width:400px;
+  margin:auto;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+input, textarea {
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+button {
+  background:#ff6f61;
+  color:white;
+  padding:12px;
+  border:none;
+  width:100%;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px 18px;
+  border-radius:50px;
+  font-size:18px;
+  text-decoration:none;
+  box-shadow:0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+footer {
+  background:#333;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌈 Rainbow Play School</h1>
+  <p>Somandepalli, Penukonda, Sri Satya Sai - 515110</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#amenities">Amenities</a>
+  <a href="#activities">Activities</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#admission">Admission</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+  <h2>Fun Learning Starts Here 🎨</h2>
+  <p>Safe | Creative | Happy Environment for Kids</p>
+</section>
+
+<section id="about" class="section">
+  <h2>About Us</h2>
+  <p>At Rainbow Play School, we nurture young minds with fun learning, creativity and care.</p>
+</section>
+
+<section id="amenities" class="section">
+  <h2>Our Amenities</h2>
+  <div class="card">🎥 CCTV Security</div>
+  <div class="card">🛝 Safe Play Area</div>
+  <div class="card">👩‍🏫 Trained Teachers</div>
+  <div class="card">🧸 Kids Friendly Classrooms</div>
+</section>
+
+<section id="activities" class="section">
+  <h2>Activities</h2>
+  <div class="card">🎨 Drawing & Coloring</div>
+  <div class="card">🎶 Rhymes & Dance</div>
+  <div class="card">📖 Storytelling</div>
+  <div class="card">🤹 Fun Games</div>
+</section>
+
+<section id="gallery" class="section gallery">
+  <h2>Our School Moments</h2>
+  <img src="https://via.placeholder.com/300">
+  <img src="https://via.placeholder.com/300">
+  <img src="https://via.placeholder.com/300">
+</section>
+
+<section id="admission" class="section">
+  <h2>Admission Form</h2>
+  <form onsubmit="sendToWhatsApp(event)">
+    <input type="text" id="child" placeholder="Child Name" required>
+    <input type="number" id="age" placeholder="Age" required>
+    <input type="text" id="parent" placeholder="Parent Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+    <textarea id="address" placeholder="Address"></textarea>
+    <button type="submit">Submit & Send to WhatsApp</button>
+  </form>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <p>📍 Somandepalli, Penukonda, Sri Satya Sai - 515110</p>
+  <p>📞 +91 8519854024</p>
+</section>
+
+<a class="whatsapp" href="https://wa.me/918519854024" target="_blank">💬</a>
+
+<footer>
+  <p>© 2026 Rainbow Play School</p>
+</footer>
+
+<script>
+function sendToWhatsApp(e){
+  e.preventDefault();
+  let child = document.getElementById("child").value;
+  let age = document.getElementById("age").value;
+  let parent = document.getElementById("parent").value;
+  let phone = document.getElementById("phone").value;
+  let address = document.getElementById("address").value;
+
+  let message = `New Admission Enquiry:%0AChild Name: ${child}%0AAge: ${age}%0AParent: ${parent}%0APhone: ${phone}%0AAddress: ${address}`;
+
+  window.open(`https://wa.me/918519854024?text=${message}`, "_blank");
+}
+</script>
+
+</body>
+</html>
