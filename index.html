@@ -3,130 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Rainbow Play School</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin:0;
-  font-family:'Nunito',sans-serif;
-  background: linear-gradient(135deg,#f6f9ff,#eef1ff,#fdf6ff);
+  font-family:'Poppins',sans-serif;
+  background: linear-gradient(135deg,#eef2ff,#fdf6ff);
+  overflow-x:hidden;
 }
 
-/* HEADER */
-header {
-  background:linear-gradient(135deg,#ff7eb3,#ff758c,#ffb199);
-  color:white;
+/* HERO FULL SCREEN */
+.hero {
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:30px;
-  border-radius:0 0 40px 40px;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3,#ffcc70);
+  color:white;
+}
+
+.hero h1 {
+  font-size:40px;
+}
+
+.hero button {
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff758c;
+  font-weight:bold;
 }
 
 /* NAV */
 nav {
+  position:sticky;
+  top:0;
   display:flex;
   justify-content:center;
-  flex-wrap:wrap;
-  background:#222;
+  gap:10px;
+  padding:10px;
+  backdrop-filter:blur(15px);
 }
 nav a {
-  color:white;
-  padding:12px 15px;
+  background:rgba(255,255,255,0.7);
+  padding:8px 15px;
+  border-radius:30px;
   text-decoration:none;
 }
-nav a:hover {background:#444;}
-
-/* HERO */
-.hero {
-  text-align:center;
-  padding:60px 20px;
-}
-.hero h2 {font-size:32px;}
-.hero p {font-size:18px;color:#555;}
 
 /* SECTION */
 .section {
-  padding:40px 20px;
-  text-align:center;
+  margin:30px;
+  padding:30px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(15px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.1);
 }
 
 /* GRID */
 .grid {
   display:flex;
   flex-wrap:wrap;
+  gap:20px;
   justify-content:center;
 }
 
-/* CARDS */
+/* CARD */
 .card {
   background:white;
-  margin:15px;
-  padding:20px;
+  padding:25px;
   border-radius:20px;
-  width:250px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.1);
-  transition:0.3s;
+  width:240px;
+  text-align:center;
+  transition:0.4s;
 }
 .card:hover {
   transform:translateY(-10px) scale(1.05);
-  box-shadow:0 15px 30px rgba(0,0,0,0.2);
 }
 
 /* SLIDER */
-.slider {
-  max-width:600px;
-  margin:auto;
-}
-.slide {
+.slider img {
   width:100%;
-  border-radius:15px;
+  border-radius:20px;
   display:none;
 }
-.slide.active {display:block;}
+.slider img.active {
+  display:block;
+}
 
 /* GALLERY */
 .gallery {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  padding:20px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
 }
 .gallery img {
   width:100%;
   border-radius:20px;
-  cursor:pointer;
   transition:0.3s;
-  box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 .gallery img:hover {
-  transform:scale(1.05);
-}
-
-/* FORM */
-form {
-  max-width:450px;
-  margin:auto;
-  background:white;
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.1);
-}
-input, textarea {
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border-radius:10px;
-  border:1px solid #ccc;
-}
-button {
-  width:100%;
-  padding:12px;
-  background:#ff758c;
-  color:white;
-  border:none;
-  border-radius:10px;
+  transform:scale(1.08);
 }
 
 /* FLOAT BUTTONS */
@@ -135,154 +121,115 @@ button {
   bottom:20px;
   right:20px;
   background:#25D366;
-  padding:14px;
   color:white;
+  padding:15px;
   border-radius:50%;
 }
 .call-btn {
   position:fixed;
-  bottom:80px;
+  bottom:90px;
   right:20px;
   background:#ff758c;
-  padding:14px;
   color:white;
+  padding:15px;
   border-radius:50%;
 }
 
 /* FOOTER */
 footer {
-  background:#222;
-  color:white;
   text-align:center;
-  padding:15px;
+  padding:20px;
+  color:#555;
 }
 </style>
 </head>
 
 <body>
 
-<header data-aos="fade-down">
+<!-- HERO -->
+<section class="hero">
   <h1>🌈 Rainbow Play School</h1>
-  <p>Fun • Safe • Creative Learning</p>
-</header>
+  <p>Where Little Minds Grow Big Dreams 🌟</p>
+  <button onclick="document.getElementById('admission').scrollIntoView()">Apply Now</button>
+</section>
 
+<!-- NAV -->
 <nav>
   <a href="#about">About</a>
-  <a href="#amenities">Facilities</a>
+  <a href="#facilities">Facilities</a>
   <a href="#gallery">Gallery</a>
-  <a href="#admission">Admission</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<section class="hero" data-aos="fade-up">
-  <h2>Where Little Minds Grow Big Dreams 🌟</h2>
-  <p>Best Kindergarten in Somandepalli</p>
-</section>
-
-<section id="about" class="section" data-aos="fade-up">
+<!-- ABOUT -->
+<section id="about" class="section">
   <h2>About Us</h2>
   <p>
-    At Rainbow Play School, we believe every child is unique and deserves a joyful learning environment.
-    We teach alphabets, numbers, and abacus basics through fun activities.
-    Children learn through storytelling, games, and hands-on interaction.
-    We provide a safe, caring environment where kids feel happy and confident.
-    Our goal is to build a strong foundation for their bright future.
+    At Rainbow Play School, we provide joyful and safe learning.
+    Kids learn alphabets, numbers, and abacus in fun ways.
+    We focus on creativity, confidence, and overall development.
   </p>
 </section>
 
-<section id="amenities" class="section">
-  <h2 data-aos="fade-up">Our Facilities</h2>
+<!-- FACILITIES -->
+<section id="facilities" class="section">
+  <h2>Facilities</h2>
   <div class="grid">
-    <div class="card" data-aos="zoom-in">🎥 CCTV Surveillance</div>
-    <div class="card" data-aos="zoom-in">🛝 Play Area</div>
-    <div class="card" data-aos="zoom-in">👩‍🏫 Caring Teachers</div>
-    <div class="card" data-aos="zoom-in">🎨 Activity Learning</div>
-    <div class="card" data-aos="zoom-in">🧮 Abacus Basics</div>
-    <div class="card" data-aos="zoom-in">📚 Rhymes & Stories</div>
+    <div class="card">🎥 CCTV Security</div>
+    <div class="card">🛝 Play Area</div>
+    <div class="card">👩‍🏫 Expert Teachers</div>
+    <div class="card">🎨 Activity Learning</div>
   </div>
 </section>
 
 <!-- SLIDER -->
-<section class="section" data-aos="fade-up">
-  <h2>Our Activities</h2>
+<section class="section">
+  <h2>Activities</h2>
   <div class="slider">
-    <img src="activity1.jpg" class="slide active">
-    <img src="activity2.jpg" class="slide">
-    <img src="activity3.jpg" class="slide">
+    <img src="activity1.jpg" class="active">
+    <img src="activity2.jpg">
+    <img src="activity3.jpg">
   </div>
 </section>
 
 <!-- GALLERY -->
 <section id="gallery" class="section">
-  <h2 data-aos="fade-up">Our Gallery</h2>
+  <h2>Gallery</h2>
   <div class="gallery">
-    <img src="classroom.jpg" onclick="openImage(this.src)">
-    <img src="kids.jpg" onclick="openImage(this.src)">
-    <img src="activity.jpg" onclick="openImage(this.src)">
-    <img src="activity1.jpg" onclick="openImage(this.src)">
-    <img src="activity2.jpg" onclick="openImage(this.src)">
-    <img src="activity3.jpg" onclick="openImage(this.src)">
+    <img src="classroom.jpg">
+    <img src="kids.jpg">
+    <img src="activity.jpg">
   </div>
 </section>
 
+<!-- ADMISSION -->
 <section id="admission" class="section">
-  <h2 data-aos="fade-up">Admission</h2>
-  <form onsubmit="sendToWhatsApp(event)" data-aos="fade-up">
-    <input type="text" id="child" placeholder="Child Name" required>
-    <input type="number" id="age" placeholder="Age" required>
-    <input type="text" id="parent" placeholder="Parent Name" required>
-    <input type="tel" id="phone" placeholder="Phone Number" required>
-    <textarea id="address" placeholder="Address"></textarea>
-    <button>Apply Now</button>
-  </form>
+  <h2>Admission</h2>
+  <button onclick="window.open('https://wa.me/918519854024')">Apply via WhatsApp</button>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section" data-aos="fade-up">
-  <h2>Contact Us</h2>
-  <p>📍 Somandepalli, Penukonda, Sri Satya Sai - 515110</p>
-  <p>📞 <a href="tel:+918519854024" style="color:#ff758c;font-weight:bold;">Call Now</a></p>
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>📍 Somandepalli, Penukonda</p>
+  <p><a href="tel:+918519854024">📞 Call Now</a></p>
 </section>
 
 <a class="whatsapp" href="https://wa.me/918519854024">💬</a>
 <a class="call-btn" href="tel:+918519854024">📞</a>
 
-<footer data-aos="fade-up">
-  <p>© 2026 Rainbow Play School</p>
+<footer>
+  <p>© Rainbow Play School</p>
 </footer>
 
-<!-- IMAGE POPUP -->
-<div id="popup" onclick="closeImage()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;">
-  <img id="popup-img" style="max-width:90%;max-height:90%;border-radius:15px;">
-</div>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({duration:1000, once:true});
-
-function sendToWhatsApp(e){
-  e.preventDefault();
-  let msg = `Admission Request:%0AChild: ${child.value}%0AAge: ${age.value}%0AParent: ${parent.value}%0APhone: ${phone.value}%0AAddress: ${address.value}`;
-  window.open("https://wa.me/918519854024?text="+msg);
-}
-
-/* slider */
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+let slides=document.querySelectorAll(".slider img");
+let i=0;
 setInterval(()=>{
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
+  slides[i].classList.remove("active");
+  i=(i+1)%slides.length;
+  slides[i].classList.add("active");
 },3000);
-
-/* gallery popup */
-function openImage(src){
-  document.getElementById("popup").style.display="flex";
-  document.getElementById("popup-img").src=src;
-}
-function closeImage(){
-  document.getElementById("popup").style.display="none";
-}
 </script>
 
 </body>
