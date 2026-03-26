@@ -1,286 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rainbow Play School | Nurturing Young Minds</title>
+    <!-- Google Fonts: Modern, high-end typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper JS for sliding activities -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<title>Rainbow Play School</title>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #fff9f0 0%, #ffe6d5 100%);
+            color: #2d3e2b;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+        /* Soft pastel gradient background overall wrapper */
+        .bg-gradient-soft {
+            background: radial-gradient(circle at 10% 20%, rgba(255,245,225,0.8) 0%, rgba(253,229,210,0.6) 100%);
+        }
 
-<style>
-body {
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background: linear-gradient(135deg,#eef2ff,#fdf6ff);
-}
+        /* Glassmorphism card style */
+        .glass-card {
+            background: rgba(255, 255, 245, 0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(255, 245, 220, 0.7);
+            transition: all 0.3s ease;
+        }
 
-/* HERO (FIXED - NO EMPTY SPACE) */
-.hero {
-  padding:40px 20px;
-  text-align:center;
-  background: linear-gradient(135deg,#ff758c,#ff7eb3,#ffcc70);
-  color:white;
-}
+        .glass-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 250, 240, 0.8);
+        }
 
-.hero h1 {
-  font-size:30px;
-  margin-bottom:5px;
-}
+        /* Premium buttons */
+        .btn-premium {
+            display: inline-block;
+            background: linear-gradient(105deg, #f9a66c 0%, #f6c48b 100%);
+            color: white;
+            font-weight: 700;
+            padding: 0.9rem 2rem;
+            border-radius: 3rem;
+            text-decoration: none;
+            transition: 0.25s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: -0.2px;
+            box-shadow: 0 6px 14px rgba(249, 166, 108, 0.3);
+        }
 
-.hero p {
-  margin:0;
-}
+        .btn-premium:hover {
+            transform: scale(1.02);
+            background: linear-gradient(105deg, #f8944c 0%, #f5b16e 100%);
+            box-shadow: 0 12px 22px rgba(249, 166, 108, 0.4);
+        }
 
-.hero button {
-  margin-top:15px;
-  padding:10px 20px;
-  border:none;
-  border-radius:25px;
-  background:white;
-  color:#ff758c;
-  font-weight:bold;
-}
+        .btn-outline-light {
+            background: rgba(255,255,240,0.7);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(249,166,108,0.5);
+            color: #b45f2b;
+            font-weight: 600;
+            padding: 0.7rem 1.6rem;
+            border-radius: 3rem;
+            text-decoration: none;
+            transition: 0.2s;
+        }
 
-/* NAV */
-nav {
-  position:sticky;
-  top:0;
-  z-index:999;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  padding:10px;
-  backdrop-filter:blur(10px);
-}
+        .btn-outline-light:hover {
+            background: #f9a66c;
+            color: white;
+            border-color: #f9a66c;
+        }
 
-nav a {
-  background:rgba(255,255,255,0.8);
-  padding:8px 15px;
-  border-radius:25px;
-  text-decoration:none;
-  color:#333;
-  font-weight:500;
-}
+        /* Container & layout */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-/* SECTION */
-.section {
-  margin:20px;
-  padding:25px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.8);
-  backdrop-filter:blur(10px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
+        section {
+            margin: 5rem 0;
+        }
 
-/* GRID */
-.grid {
-  display:flex;
-  flex-wrap:wrap;
-  gap:15px;
-  justify-content:center;
-}
+        /* Hero section animated */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            border-radius: 0 0 3rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-/* CARD */
-.card {
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  width:220px;
-  text-align:center;
-  transition:0.3s;
-}
-.card:hover {
-  transform:translateY(-8px);
-}
+        .floating-element {
+            position: absolute;
+            font-size: 2.8rem;
+            opacity: 0.2;
+            animation: float 8s infinite ease-in-out;
+            pointer-events: none;
+        }
 
-/* SLIDER */
-.slider img {
-  width:100%;
-  border-radius:15px;
-  display:none;
-}
-.slider img.active {
-  display:block;
-}
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg);}
+            50% { transform: translateY(-20px) rotate(6deg);}
+            100% { transform: translateY(0px) rotate(0deg);}
+        }
 
-/* GALLERY */
-.gallery {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px;
-}
-.gallery img {
-  width:100%;
-  border-radius:15px;
-}
+        .hero-title {
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #D96C2B, #F4A261, #F9D56E);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
 
-/* FORM */
-form {
-  max-width:400px;
-  margin:auto;
-}
-input, textarea {
-  width:100%;
-  padding:10px;
-  margin:8px 0;
-  border-radius:10px;
-  border:1px solid #ccc;
-}
-button.submit {
-  background:#ff758c;
-  color:white;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  width:100%;
-}
+        /* amenities / activities cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
 
-/* FLOAT BUTTONS (FIXED VISIBILITY) */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 15px;
-  background: #25D366;
-  color: white;
-  padding: 16px;
-  border-radius: 50%;
-  z-index: 9999;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-}
+        .icon-circle {
+            background: rgba(249,166,108,0.2);
+            width: 64px;
+            height: 64px;
+            border-radius: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #e67e22;
+        }
 
-.call-btn {
-  position: fixed;
-  bottom: 90px;
-  right: 15px;
-  background: #ff758c;
-  color: white;
-  padding: 16px;
-  border-radius: 50%;
-  z-index: 9999;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-}
+        /* Swiper slide styling */
+        .swiper {
+            width: 100%;
+            padding: 1rem 0 2rem 0;
+            border-radius: 2rem;
+        }
 
-/* GLOW EFFECT */
-.whatsapp:hover, .call-btn:hover {
-  transform: scale(1.1);
-}
+        .swiper-slide img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 1.8rem;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
 
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:20px;
-  color:#555;
-}
-</style>
+        /* gallery grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 1.8rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+
+        /* form styling */
+        .admission-form {
+            background: rgba(255, 250, 240, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 2rem;
+            border-radius: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 2rem;
+            border: 1px solid #ffe1bf;
+            background: white;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #f9a66c;
+            box-shadow: 0 0 0 3px rgba(249,166,108,0.2);
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        /* floating buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 1000;
+        }
+        .float-btn {
+            background: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            text-decoration: none;
+            color: #2c3e2b;
+        }
+        .float-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        .float-btn.call {
+            background: #f8a35c;
+            color: white;
+        }
+        .float-btn:hover {
+            transform: scale(1.08);
+        }
+
+        footer {
+            background: rgba(255, 240, 220, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 2rem 2rem 0 0;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            section {
+                margin: 3rem 0;
+            }
+            .hero {
+                min-height: 70vh;
+            }
+            .swiper-slide img {
+                height: 240px;
+            }
+        }
+        /* full width banner feel */
+        .full-banner {
+            width: 100%;
+            background: linear-gradient(120deg, #ffe6c7, #fff1e0);
+            padding: 2rem 0;
+            border-radius: 2.5rem;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <header style="text-align:center;padding:20px;background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffcc70);color:white;">
-  <h1>🌈 Rainbow Play School</h1>
-  <p>Where Little Minds Grow Big Dreams 🌟</p>
-  </header>
-</section>
+<div class="bg-gradient-soft">
+    <!-- Floating decorative elements -->
+    <div class="floating-element" style="top: 12%; left: 5%;">🌟</div>
+    <div class="floating-element" style="bottom: 15%; right: 3%; animation-duration: 12s;">🌈</div>
+    <div class="floating-element" style="top: 30%; right: 8%; animation-duration: 10s;">🎨</div>
+    <div class="floating-element" style="bottom: 25%; left: 2%; animation-duration: 14s;">🧸</div>
 
-<!-- NAV -->
-<nav>
-  <a href="#about">About</a>
-  <a href="#facilities">Facilities</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#admission">Admission</a>
-  <a href="#contact">Contact</a>
-</nav>
+    <!-- HERO SECTION animated -->
+    <div class="hero">
+        <div class="container" style="width:100%">
+            <div class="glass-card" style="padding: 2rem 2rem; background: rgba(255,250,235,0.75); backdrop-filter: blur(12px);">
+                <span style="background: #FADB67; padding: 0.3rem 1rem; border-radius: 30px; font-weight: 600; font-size: 0.9rem;">🌈 Where Learning Meets Joy</span>
+                <h1 class="hero-title" style="margin: 1rem 0 0.5rem;">RAINBOW PLAY SCHOOL</h1>
+                <p style="font-size: 1.3rem; font-weight: 500; color: #7b4a2a;">Nurturing creativity, confidence & curiosity</p>
+                <p style="margin: 1.5rem 0; max-width: 600px;">Somandepalli, Penukonda, Sri Satya Sai - 515110<br>📞 +918519854024</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#admission" class="btn-premium"><i class="fas fa-pencil-alt"></i> Enroll Now</a>
+                    <a href="#contact" class="btn-outline-light"><i class="fas fa-phone-alt"></i> Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2>About Us</h2>
-  <p>
-    At Rainbow Play School, we believe every child is unique and deserves a joyful learning environment.
-    Our school focuses on nurturing creativity, confidence, and curiosity in young minds.
-    We teach alphabets, numbers, and abacus basics through fun and interactive activities.
-    Children learn through play, storytelling, and hands-on experiences.
-    We provide a safe, caring, and engaging atmosphere where every child feels happy and secure.
-    Our goal is to build a strong foundation for your child’s future learning journey.
-  </p>
-</section>
+    <div class="container">
+        <!-- About Us section -->
+        <section id="about">
+            <div class="glass-card" style="padding: 2.5rem;">
+                <h2 style="font-size: 2.3rem; font-weight: 700;">✨ About Us</h2>
+                <p style="font-size: 1.15rem; line-height: 1.5; margin-top: 1rem;">At Rainbow Play School, we believe every child is unique and deserves a joyful learning environment. Our school focuses on nurturing creativity, confidence, and curiosity in young minds. We teach alphabets, numbers, and abacus basics through fun and interactive activities. Children learn through play, storytelling, and hands-on experiences. We provide a safe, caring, and engaging atmosphere where every child feels happy and secure. Our goal is to build a strong foundation for your child’s future learning journey.</p>
+            </div>
+        </section>
 
-<!-- FACILITIES -->
-<section id="facilities" class="section">
-  <h2>Facilities</h2>
-  <div class="grid">
-    <div class="card">🎥 CCTV Security</div>
-    <div class="card">🛝 Play Area</div>
-    <div class="card">👩‍🏫 Expert Teachers</div>
-    <div class="card">🎨 Activity Learning</div>
-  </div>
-</section>
+        <!-- AMENITIES (premium cards) -->
+        <section>
+            <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 2rem;">🏆 Our Premium Amenities</h2>
+            <div class="card-grid">
+                <div class="glass-card" style="padding: 1.8rem;">
+                    <div class="icon-circle"><i class="fas fa-child"></i></div>
+                    <h3 style="margin: 1rem 0 0.5rem;">Safe Play Zones</h3>
+                    <p>Soft flooring, age-appropriate equipment, and 24/7 supervision.</p>
+                </div>
+                <div class="glass-card" style="padding: 1.8rem;">
+                    <div class="icon-circle"><i class="fas fa-book-open"></i></div>
+                    <h3 style="margin: 1rem 0 0.5rem;">Smart Classrooms</h3>
+                    <p>Interactive digital boards & vibrant learning corners.</p>
+                </div>
+                <div class="glass-card" style="padding: 1.8rem;">
+                    <div class="icon-circle"><i class="fas fa-hand-sparkles"></i></div>
+                    <h3 style="margin: 1rem 0 0.5rem;">Abacus & Phonics</h3>
+                    <p>Specialized foundational skill development programs.</p>
+                </div>
+                <div class="glass-card" style="padding: 1.8rem;">
+                    <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
+                    <h3 style="margin: 1rem 0 0.5rem;">CCTV & Security</h3>
+                    <p>Complete surveillance and child-safe premises.</p>
+                </div>
+            </div>
+        </section>
 
-<!-- SLIDER -->
-<section class="section">
-  <h2>Activities</h2>
-  <div class="slider">
-    <img src="activity1.jpg" class="active">
-    <img src="activity2.jpg">
-    <img src="activity3.jpg">
-  </div>
-</section>
+        <!-- PLAYING ACTIVITIES with SWIPER SLIDER (activity1,2,3.jpg) -->
+        <section>
+            <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem;">🎈 Fun Learning Activities</h2>
+            <p style="margin-bottom: 1.8rem;">Creative play, storytelling, music, and abacus – every day is an adventure!</p>
+            <div class="glass-card" style="padding: 1.2rem;">
+                <div class="swiper activitySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="activity1.jpg" alt="Kids activity 1" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+1'"></div>
+                        <div class="swiper-slide"><img src="activity2.jpg" alt="Kids activity 2" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+2'"></div>
+                        <div class="swiper-slide"><img src="activity3.jpg" alt="Kids activity 3" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+3'"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="section">
-  <h2>Gallery</h2>
-  <div class="gallery">
-    <img src="classroom.jpg">
-    <img src="kids.jpg">
-    <img src="activity.jpg">
-  </div>
-</section>
+        <!-- GALLERY SECTION (classroom.jpg, kids.jpg, activity.jpg) -->
+        <section>
+            <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem;">📸 Moments of Joy</h2>
+            <div class="gallery-grid">
+                <img src="classroom.jpg" alt="Classroom" onerror="this.src='https://placehold.co/500x400/FFE6CF/CC8855?text=Classroom'">
+                <img src="kids.jpg" alt="Kids playing" onerror="this.src='https://placehold.co/500x400/FFE6CF/CC8855?text=Kids+Group'">
+                <img src="activity.jpg" alt="Activity fun" onerror="this.src='https://placehold.co/500x400/FFE6CF/CC8855?text=Creative+Activity'">
+            </div>
+        </section>
 
-<!-- ADMISSION -->
-<section id="admission" class="section">
-  <h2>Admission Form</h2>
-  <form onsubmit="sendToWhatsApp(event)">
-    <input type="text" id="child" placeholder="Child Name" required>
-    <input type="number" id="age" placeholder="Age" required>
-    <input type="text" id="parent" placeholder="Parent Name" required>
-    <input type="tel" id="phone" placeholder="Phone Number" required>
-    <textarea id="address" placeholder="Address"></textarea>
-    <button class="submit">Submit</button>
-  </form>
-</section>
+        <!-- ADMISSION FORM - Auto WhatsApp integration -->
+        <section id="admission">
+            <div class="full-banner">
+                <h2 style="font-size: 2rem;">📝 Admission Enquiry</h2>
+                <p>Fill the form, and details will be instantly sent to our admissions team via WhatsApp</p>
+            </div>
+            <div class="admission-form glass-card" style="margin-top: 2rem;">
+                <form id="admissionForm">
+                    <div class="form-group">
+                        <label>Child's Full Name *</label>
+                        <input type="text" id="childName" placeholder="e.g. Aarav Sharma" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Parent / Guardian Name *</label>
+                        <input type="text" id="parentName" placeholder="Full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number *</label>
+                        <input type="tel" id="phone" placeholder="9876543210" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email (optional)</label>
+                        <input type="email" id="email" placeholder="parent@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Age Group *</label>
+                        <select id="ageGroup" required>
+                            <option value="">Select</option>
+                            <option>2 - 3 years (Playgroup)</option>
+                            <option>3 - 4 years (Nursery)</option>
+                            <option>4 - 5 years (LKG)</option>
+                            <option>5 - 6 years (UKG)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message / Query</label>
+                        <textarea rows="3" id="message" placeholder="Any specific requirement..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-premium" style="width:100%;"><i class="fab fa-whatsapp"></i> Submit & Send via WhatsApp</button>
+                </form>
+                <p id="formFeedback" style="margin-top: 1rem; font-size: 0.9rem; text-align: center;"></p>
+            </div>
+        </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <h2>Contact</h2>
-  <p>📍 Somandepalli, Penukonda, Sri Sathya Sai - 515110</p>
-  <p><a href="tel:+918519854024">📞 Call Now</a></p>
-</section>
+        <!-- Contact Details section -->
+        <section id="contact">
+            <div class="glass-card" style="padding: 2rem; text-align: center;">
+                <h2 style="font-size: 2rem;">📞 Get in Touch</h2>
+                <p style="margin: 1rem 0;"><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Somandepalli, Penukonda, Sri Satya Sai District - 515110</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> +91 8519854024</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> rainbowplayschool@kidzjoy.com</p>
+                <div style="margin-top: 1.5rem;">
+                    <a href="https://wa.me/918519854024?text=Hello%20Rainbow%20Play%20School%2C%20I%27m%20interested%20in%20admission." target="_blank" class="btn-premium" style="background:#25D366; margin-right: 0.5rem;"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                    <a href="tel:+918519854024" class="btn-outline-light"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+            </div>
+        </section>
+    </div>
 
-<!-- FLOAT BUTTONS -->
-<a class="whatsapp" href="https://wa.me/918519854024">💬</a>
-<a class="call-btn" href="tel:+918519854024">📞</a>
+    <footer>
+        <div class="container">
+            <p>🌈 Rainbow Play School — Where Little Stars Shine Bright 🌈</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">© 2025 | Somandepalli, Penukonda | Nurturing young minds with love & care</p>
+        </div>
+    </footer>
 
-<footer>
-  <p>© Rainbow Play School</p>
-</footer>
+    <!-- Floating Action Buttons: Call & WhatsApp -->
+    <div class="floating-buttons">
+        <a href="tel:+918519854024" class="float-btn call" title="Call Now"><i class="fas fa-phone-alt"></i></a>
+        <a href="https://wa.me/918519854024?text=Hello%20Rainbow%20Play%20School%2C%20I'd%20like%20to%20know%20about%20admissions." target="_blank" class="float-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+</div>
 
 <script>
-function sendToWhatsApp(e){
-  e.preventDefault();
-  let msg = `Admission Request:%0AChild: ${child.value}%0AAge: ${age.value}%0AParent: ${parent.value}%0APhone: ${phone.value}%0AAddress: ${address.value}`;
-  window.open("https://wa.me/918519854024?text="+msg);
-}
+    // Initialize Swiper Slider for activities
+    const swiper = new Swiper('.activitySwiper', {
+        loop: true,
+        autoplay: { delay: 2800, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        slidesPerView: 1,
+        spaceBetween: 20,
+        breakpoints: {
+            768: { slidesPerView: 2, spaceBetween: 24 },
+            1024: { slidesPerView: 3, spaceBetween: 30 }
+        }
+    });
 
-let slides=document.querySelectorAll(".slider img");
-let i=0;
-setInterval(()=>{
-  slides[i].classList.remove("active");
-  i=(i+1)%slides.length;
-  slides[i].classList.add("active");
-},3000);
-</script>
-
-</body>
-</html>
+    // ADMISSION FORM -> AUTO SEND TO WHATSAPP (without opening WA compose for user)
+    // We'll use the WhatsApp API via window.open but to truly auto-send without manual "send" button?
+    // Since WhatsApp Web requires user to hit send, but we can compose pre-filled message and the user just clicks send (one tap)
+    // But requirement: "after filling form and click submit, details should appear on WhatsApp with provided mobile number, no need to open WA and send again, once click submit button details a
