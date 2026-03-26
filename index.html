@@ -15,26 +15,28 @@ body {
   background: linear-gradient(135deg,#eef2ff,#fdf6ff);
 }
 
-/* HERO */
+/* HERO (FIXED - NO EMPTY SPACE) */
 .hero {
-  height:60vh;
-  padding-top:40px;
-}
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  padding:40px 20px;
   text-align:center;
   background: linear-gradient(135deg,#ff758c,#ff7eb3,#ffcc70);
   color:white;
 }
-.hero h1 {font-size:38px;}
+
+.hero h1 {
+  font-size:30px;
+  margin-bottom:5px;
+}
+
+.hero p {
+  margin:0;
+}
 
 .hero button {
-  margin-top:20px;
-  padding:12px 25px;
+  margin-top:15px;
+  padding:10px 20px;
   border:none;
-  border-radius:30px;
+  border-radius:25px;
   background:white;
   color:#ff758c;
   font-weight:bold;
@@ -42,82 +44,86 @@ body {
 
 /* NAV */
 nav {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-  backdrop-filter: blur(10px);
+  position:sticky;
+  top:0;
+  z-index:999;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:10px;
+  backdrop-filter:blur(10px);
 }
+
 nav a {
-  background:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.8);
   padding:8px 15px;
-  border-radius:30px;
+  border-radius:25px;
   text-decoration:none;
+  color:#333;
+  font-weight:500;
 }
 
 /* SECTION */
 .section {
-  margin:30px;
-  padding:30px;
-  margin-top: 20px;
-  border-radius:25px;
-  background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(15px);
-  box-shadow:0 15px 40px rgba(0,0,0,0.1);
+  margin:20px;
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
 /* GRID */
 .grid {
   display:flex;
   flex-wrap:wrap;
-  gap:20px;
+  gap:15px;
   justify-content:center;
 }
 
 /* CARD */
 .card {
   background:white;
-  padding:25px;
-  border-radius:20px;
-  width:240px;
+  padding:20px;
+  border-radius:15px;
+  width:220px;
   text-align:center;
-  transition:0.4s;
+  transition:0.3s;
 }
 .card:hover {
-  transform:translateY(-10px) scale(1.05);
+  transform:translateY(-8px);
 }
 
 /* SLIDER */
 .slider img {
   width:100%;
-  border-radius:20px;
+  border-radius:15px;
   display:none;
 }
-.slider img.active {display:block;}
+.slider img.active {
+  display:block;
+}
 
 /* GALLERY */
 .gallery {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
 }
 .gallery img {
   width:100%;
-  border-radius:20px;
+  border-radius:15px;
 }
 
 /* FORM */
 form {
-  max-width:450px;
+  max-width:400px;
   margin:auto;
 }
 input, textarea {
   width:100%;
-  padding:12px;
-  margin:10px 0;
+  padding:10px;
+  margin:8px 0;
   border-radius:10px;
   border:1px solid #ccc;
 }
@@ -127,9 +133,10 @@ button.submit {
   padding:12px;
   border:none;
   border-radius:10px;
+  width:100%;
 }
 
-/* FLOAT */
+/* FLOAT BUTTONS (FIXED VISIBILITY) */
 .whatsapp {
   position: fixed;
   bottom: 20px;
@@ -139,7 +146,7 @@ button.submit {
   padding: 16px;
   border-radius: 50%;
   z-index: 9999;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 
 .call-btn {
@@ -151,12 +158,13 @@ button.submit {
   padding: 16px;
   border-radius: 50%;
   z-index: 9999;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
-  .whatsapp:hover, .call-btn:hover {
+
+/* GLOW EFFECT */
+.whatsapp:hover, .call-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 117, 140, 0.8);
-  }
+}
 
 /* FOOTER */
 footer {
@@ -185,7 +193,7 @@ footer {
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- ABOUT (PREVIOUS VERSION KEPT) -->
+<!-- ABOUT -->
 <section id="about" class="section">
   <h2>About Us</h2>
   <p>
@@ -229,7 +237,7 @@ footer {
   </div>
 </section>
 
-<!-- ADMISSION FORM -->
+<!-- ADMISSION -->
 <section id="admission" class="section">
   <h2>Admission Form</h2>
   <form onsubmit="sendToWhatsApp(event)">
@@ -249,6 +257,7 @@ footer {
   <p><a href="tel:+918519854024">📞 Call Now</a></p>
 </section>
 
+<!-- FLOAT BUTTONS -->
 <a class="whatsapp" href="https://wa.me/918519854024">💬</a>
 <a class="call-btn" href="tel:+918519854024">📞</a>
 
