@@ -1,17 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Rainbow Play School | Nurturing Young Minds</title>
-    <!-- Google Fonts: Modern, high-end typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (free icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Swiper JS for sliding activities -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Play School - Nurturing Young Minds</title>
+    <meta name="description" content="Rainbow Play School - Best preschool in Somandepalli, Penukonda. Creative learning through play, abacus, alphabets & numbers.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -19,484 +14,187 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(145deg, #fff9f0 0%, #ffe6d5 100%);
-            color: #2d3e2b;
-            line-height: 1.4;
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --pastel-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
-        /* Soft pastel gradient background overall wrapper */
-        .bg-gradient-soft {
-            background: radial-gradient(circle at 10% 20%, rgba(255,245,225,0.8) 0%, rgba(253,229,210,0.6) 100%);
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            background: var(--pastel-bg);
         }
 
-        /* Glassmorphism card style */
-        .glass-card {
-            background: rgba(255, 255, 245, 0.65);
-            backdrop-filter: blur(12px);
-            border-radius: 2rem;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(255, 245, 220, 0.7);
-            transition: all 0.3s ease;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 40px rgba(0, 0, 0, 0.1);
-            background: rgba(255, 250, 240, 0.8);
-        }
-
-        /* Premium buttons */
-        .btn-premium {
-            display: inline-block;
-            background: linear-gradient(105deg, #f9a66c 0%, #f6c48b 100%);
-            color: white;
-            font-weight: 700;
-            padding: 0.9rem 2rem;
-            border-radius: 3rem;
-            text-decoration: none;
-            transition: 0.25s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            letter-spacing: -0.2px;
-            box-shadow: 0 6px 14px rgba(249, 166, 108, 0.3);
-        }
-
-        .btn-premium:hover {
-            transform: scale(1.02);
-            background: linear-gradient(105deg, #f8944c 0%, #f5b16e 100%);
-            box-shadow: 0 12px 22px rgba(249, 166, 108, 0.4);
-        }
-
-        .btn-outline-light {
-            background: rgba(255,255,240,0.7);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(249,166,108,0.5);
-            color: #b45f2b;
-            font-weight: 600;
-            padding: 0.7rem 1.6rem;
-            border-radius: 3rem;
-            text-decoration: none;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-outline-light:hover {
-            background: #f9a66c;
-            color: white;
-            border-color: #f9a66c;
-        }
-
-        /* Container & layout */
         .container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 20px;
         }
 
-        section {
-            margin: 5rem 0;
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        /* Hero section animated */
-        .hero {
-            min-height: 85vh;
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            border-radius: 0 0 3rem 3rem;
-            position: relative;
-            overflow: hidden;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
         }
 
-        .floating-element {
-            position: absolute;
-            font-size: 2.8rem;
-            opacity: 0.2;
-            animation: float 8s infinite ease-in-out;
-            pointer-events: none;
+        .float-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .call-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            animation-delay: 1s;
         }
 
         @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg);}
-            50% { transform: translateY(-20px) rotate(6deg);}
-            100% { transform: translateY(0px) rotate(0deg);}
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
-        .hero-title {
-            font-size: clamp(2.8rem, 7vw, 5rem);
-            font-weight: 800;
-            background: linear-gradient(135deg, #D96C2B, #F4A261, #F9D56E);
-            background-clip: text;
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--pastel-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .rainbow-loader {
+            text-align: center;
+        }
+
+        .loader-circle {
+            width: 80px;
+            height: 80px;
+            border: 4px solid var(--glass-border);
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 100;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo h2 {
+            background: var(--primary-gradient);
             -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: -0.02em;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* amenities / activities cards */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        .nav-menu {
+            display: flex;
+            list-style: none;
             gap: 2rem;
         }
 
-        .icon-circle {
-            background: rgba(249,166,108,0.2);
-            width: 64px;
-            height: 64px;
-            border-radius: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: #e67e22;
-        }
-
-        /* Swiper slide styling - enhanced auto slide */
-        .swiper {
-            width: 100%;
-            padding: 1rem 0 2rem 0;
-            border-radius: 2rem;
-        }
-
-        .swiper-slide {
-            display: flex;
-            justify-content: center;
-        }
-
-        .swiper-slide img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            border-radius: 1.8rem;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .swiper-slide img:hover {
-            transform: scale(1.02);
-        }
-
-        /* gallery grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-        }
-        .gallery-grid img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            border-radius: 1.8rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
-        .gallery-grid img:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
-        }
-
-        /* form styling */
-        .admission-form {
-            background: rgba(255, 250, 240, 0.8);
-            backdrop-filter: blur(8px);
-            padding: 2rem;
-            border-radius: 2rem;
-        }
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 1rem;
-            border-radius: 2rem;
-            border: 1px solid #ffe1bf;
-            background: white;
-            font-family: 'Inter', sans-serif;
-            outline: none;
-            transition: 0.2s;
-        }
-        input:focus, select:focus, textarea:focus {
-            border-color: #f9a66c;
-            box-shadow: 0 0 0 3px rgba(249,166,108,0.2);
-        }
-        label {
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            display: block;
-        }
-
-        /* floating buttons */
-        .floating-buttons {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            z-index: 1000;
-        }
-        .float-btn {
-            background: white;
-            width: 56px;
-            height: 56px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-            transition: 0.2s;
+        .nav-menu a {
+            color: var(--text-primary);
             text-decoration: none;
-            color: #2c3e2b;
-        }
-        .float-btn.whatsapp {
-            background: #25D366;
-            color: white;
-        }
-        .float-btn.call {
-            background: #f8a35c;
-            color: white;
-        }
-        .float-btn:hover {
-            transform: scale(1.08);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
-        footer {
-            background: rgba(255, 240, 220, 0.7);
-            backdrop-filter: blur(4px);
-            border-radius: 2rem 2rem 0 0;
-            padding: 2rem 0;
-            text-align: center;
-            margin-top: 4rem;
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
         }
 
-        /* Contact buttons container - fixed arrangement */
-        .contact-buttons-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.8rem;
-        }
-        
-        .contact-buttons-wrapper .btn-premium,
-        .contact-buttons-wrapper .btn-outline-light {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 1rem;
-            padding: 0.8rem 1.8rem;
-        }
-        
-        /* Fix phone icon direction - ensure it's not reversed */
-        .fa-phone-alt, .fas.fa-phone-alt, .fa-phone {
-            transform: scaleX(1);
-            display: inline-block;
-        }
-        
-        /* Ensure proper icon alignment */
-        .btn-outline-light i, .btn-premium i {
-            margin-right: 0.2rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1.2rem;
-            }
-            section {
-                margin: 3rem 0;
-            }
-            .hero {
-                min-height: 70vh;
-            }
-            .swiper-slide img {
-                height: 240px;
-            }
-            .contact-buttons-wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
-            .contact-buttons-wrapper .btn-premium,
-            .contact-buttons-wrapper .btn-outline-light {
-                width: auto;
-                min-width: 180px;
-                justify-content: center;
-            }
-        }
-        /* full width banner feel */
-        .full-banner {
+        .nav-menu a:hover::after {
             width: 100%;
-            background: linear-gradient(120deg, #ffe6c7, #fff1e0);
-            padding: 2rem 0;
-            border-radius: 2.5rem;
-            text-align: center;
         }
-        
-        /* Smooth hover for all interactive elements */
-        a, button {
-            transition: all 0.2s ease;
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
         }
-        
-        /* Swiper navigation button styling */
-        .swiper-button-next, .swiper-button-prev {
-            color: #f9a66c;
-            background: rgba(255,255,245,0.7);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            backdrop-filter: blur(4px);
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
         }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-size: 1.2rem;
-        }
-        .swiper-pagination-bullet-active {
-            background: #f9a66c;
-        }
-    </style>
-</head>
-<body>
 
-<div class="bg-gradient-soft">
-    <!-- Floating decorative elements -->
-    <div class="floating-element" style="top: 12%; left: 5%;">🌟</div>
-    <div class="floating-element" style="bottom: 15%; right: 3%; animation-duration: 12s;">🌈</div>
-    <div class="floating-element" style="top: 30%; right: 8%; animation-duration: 10s;">🎨</div>
-    <div class="floating-element" style="bottom: 25%; left: 2%; animation-duration: 14s;">🧸</div>
-
-    <!-- HERO SECTION animated -->
-    <div class="hero">
-        <div class="container" style="width:100%">
-            <div class="glass-card" style="padding: 2rem 2rem; background: rgba(255,250,235,0.75); backdrop-filter: blur(12px);">
-                <span style="background: #FADB67; padding: 0.3rem 1rem; border-radius: 30px; font-weight: 600; font-size: 0.9rem;">🌈 Where Learning Meets Joy</span>
-                <h1 class="hero-title" style="margin: 1rem 0 0.5rem;">RAINBOW PLAY SCHOOL</h1>
-                <p style="font-size: 1.3rem; font-weight: 500; color: #7b4a2a;">Nurturing creativity, confidence & curiosity</p>
-                <p style="margin: 1.5rem 0; max-width: 600px;">Somandepalli, Penukonda, Sri Satya Sai - 515110<br>📞 +918519854024</p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="#admission" class="btn-premium"><i class="fas fa-pencil-alt"></i> Enroll Now</a>
-                    <a href="#contact" class="btn-outline-light"><i class="fas fa-phone-alt"></i> Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <!-- About Us section -->
-        <section id="about">
-            <div class="glass-card" style="padding: 2.5rem;">
-                <h2 style="font-size: 2.3rem; font-weight: 700;">✨ About Us</h2>
-                <p style="font-size: 1.15rem; line-height: 1.5; margin-top: 1rem;">At Rainbow Play School, we believe every child is unique and deserves a joyful learning environment. Our school focuses on nurturing creativity, confidence, and curiosity in young minds. We teach alphabets, numbers, and abacus basics through fun and interactive activities. Children learn through play, storytelling, and hands-on experiences. We provide a safe, caring, and engaging atmosphere where every child feels happy and secure. Our goal is to build a strong foundation for your child's future learning journey.</p>
-            </div>
-        </section>
-
-        <!-- AMENITIES (premium cards) -->
-        <section>
-            <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 2rem;">🏆 Our Premium Amenities</h2>
-            <div class="card-grid">
-                <div class="glass-card" style="padding: 1.8rem;">
-                    <div class="icon-circle"><i class="fas fa-child"></i></div>
-                    <h3 style="margin: 1rem 0 0.5rem;">Safe Play Zones</h3>
-                    <p>Soft flooring, age-appropriate equipment, and 24/7 supervision.</p>
-                </div>
-                <div class="glass-card" style="padding: 1.8rem;">
-                    <div class="icon-circle"><i class="fas fa-book-open"></i></div>
-                    <h3 style="margin: 1rem 0 0.5rem;">Smart Classrooms</h3>
-                    <p>Interactive digital boards & vibrant learning corners.</p>
-                </div>
-                <div class="glass-card" style="padding: 1.8rem;">
-                    <div class="icon-circle"><i class="fas fa-hand-sparkles"></i></div>
-                    <h3 style="margin: 1rem 0 0.5rem;">Abacus & Phonics</h3>
-                    <p>Specialized foundational skill development programs.</p>
-                </div>
-                <div class="glass-card" style="padding: 1.8rem;">
-                    <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
-                    <h3 style="margin: 1rem 0 0.5rem;">CCTV & Security</h3>
-                    <p>Complete surveillance and child-safe premises.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PLAYING ACTIVITIES with SWIPER SLIDER - enhanced auto slide effect -->
-        <section>
-            <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem;">🎈 Fun Learning Activities</h2>
-            <p style="margin-bottom: 1.8rem;">Creative play, storytelling, music, and abacus – every day is an adventure!</p>
-            <div class="glass-card" style="padding: 1.2rem;">
-                <div class="swiper activitySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="activity1.jpg" alt="Kids creative activity" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+1'"></div>
-                        <div class="swiper-slide"><img src="activity2.jpg" alt="Kids playing together" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+2'"></div>
-                        <div class="swiper-slide"><img src="activity3.jpg" alt="Fun learning session" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+3'"></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- GALLERY SECTION (classroom.jpg, kids.jpg, activity.jpg) -->
-        <section>
-            <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem;">📸 Moments of Joy</h2>
-            <div class="gallery-grid">
-                <img src="classroom.jpg" alt="Classroom" onerror="this.src='https://placehold.co/500x400/FFE6CF/CC8855?text=Classroom'">
-                <img src="kids.jpg" alt="Kids playing" onerror="this.src='https://placehold.co/500x400/FFE6CF/CC8855?text=Kids+Group'">
-                <img src="activity.jpg" alt="Activity fun" onerror="this.src='https://placehold.co/500x400/FFE6CF/CC8855?text=Creative+Activity'">
-            </div>
-        </section>
-
-        <!-- ADMISSION FORM - Auto WhatsApp integration -->
-        <section id="admission">
-            <div class="full-banner">
-                <h2 style="font-size: 2rem;">📝 Admission Enquiry</h2>
-                <p>Fill the form, and details will be instantly sent to our admissions team via WhatsApp</p>
-            </div>
-            <div class="admission-form glass-card" style="margin-top: 2rem;">
-                <form id="admissionForm">
-                    <div class="form-group">
-                        <label>Child's Full Name *</label>
-                        <input type="text" id="childName" placeholder="e.g. Aarav Sharma" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Parent / Guardian Name *</label>
-                        <input type="text" id="parentName" placeholder="Full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Mobile Number *</label>
-                        <input type="tel" id="phone" placeholder="9876543210" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email (optional)</label>
-                        <input type="email" id="email" placeholder="parent@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Age Group *</label>
-                        <select id="ageGroup" required>
-                            <option value="">Select</option>
-                            <option>2 - 3 years (Playgroup)</option>
-                            <option>3 - 4 years (Nursery)</option>
-                            <option>4 - 5 years (LKG)</option>
-                            <option>5 - 6 years (UKG)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Message / Query</label>
-                        <textarea rows="3" id="message" placeholder="Any specific requirement..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-premium" style="width:100%;"><i class="fab fa-whatsapp"></i> Submit & Send via WhatsApp</button>
-                </form>
-                <p id="formFeedback" style="margin-top: 1rem; font-size: 0.9rem; text-align: center;"></p>
-            </div>
-        </section>
-
-        <!-- Contact Details section - FIXED buttons arrangement and phone icon -->
-        <section id="contact">
-            <div class="glass-card" style="padding: 2rem; text-align: center;">
-                <h2 style="font-size: 2rem;">📞 Get in Touch</h2>
-                <p style="margin: 1rem 0;"><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Somandepalli, Penukonda, Sri Satya Sai District - 515110</p>
-                <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> +91 8519854024</p>
-                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> rainbowplayschool@kidzjoy.com</p>
-                <!-- Fixed but
+        /* Hero Section
