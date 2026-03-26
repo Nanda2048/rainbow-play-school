@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,6 +81,9 @@
             border-radius: 3rem;
             text-decoration: none;
             transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-outline-light:hover {
@@ -152,11 +156,16 @@
             color: #e67e22;
         }
 
-        /* Swiper slide styling */
+        /* Swiper slide styling - enhanced auto slide */
         .swiper {
             width: 100%;
             padding: 1rem 0 2rem 0;
             border-radius: 2rem;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
         }
 
         .swiper-slide img {
@@ -165,6 +174,11 @@
             object-fit: cover;
             border-radius: 1.8rem;
             box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide img:hover {
+            transform: scale(1.02);
         }
 
         /* gallery grid */
@@ -261,6 +275,35 @@
             margin-top: 4rem;
         }
 
+        /* Contact buttons container - fixed arrangement */
+        .contact-buttons-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.8rem;
+        }
+        
+        .contact-buttons-wrapper .btn-premium,
+        .contact-buttons-wrapper .btn-outline-light {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1rem;
+            padding: 0.8rem 1.8rem;
+        }
+        
+        /* Fix phone icon direction - ensure it's not reversed */
+        .fa-phone-alt, .fas.fa-phone-alt, .fa-phone {
+            transform: scaleX(1);
+            display: inline-block;
+        }
+        
+        /* Ensure proper icon alignment */
+        .btn-outline-light i, .btn-premium i {
+            margin-right: 0.2rem;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 1.2rem;
@@ -274,6 +317,16 @@
             .swiper-slide img {
                 height: 240px;
             }
+            .contact-buttons-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-buttons-wrapper .btn-premium,
+            .contact-buttons-wrapper .btn-outline-light {
+                width: auto;
+                min-width: 180px;
+                justify-content: center;
+            }
         }
         /* full width banner feel */
         .full-banner {
@@ -282,6 +335,27 @@
             padding: 2rem 0;
             border-radius: 2.5rem;
             text-align: center;
+        }
+        
+        /* Smooth hover for all interactive elements */
+        a, button {
+            transition: all 0.2s ease;
+        }
+        
+        /* Swiper navigation button styling */
+        .swiper-button-next, .swiper-button-prev {
+            color: #f9a66c;
+            background: rgba(255,255,245,0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.2rem;
+        }
+        .swiper-pagination-bullet-active {
+            background: #f9a66c;
         }
     </style>
 </head>
@@ -315,7 +389,7 @@
         <section id="about">
             <div class="glass-card" style="padding: 2.5rem;">
                 <h2 style="font-size: 2.3rem; font-weight: 700;">✨ About Us</h2>
-                <p style="font-size: 1.15rem; line-height: 1.5; margin-top: 1rem;">At Rainbow Play School, we believe every child is unique and deserves a joyful learning environment. Our school focuses on nurturing creativity, confidence, and curiosity in young minds. We teach alphabets, numbers, and abacus basics through fun and interactive activities. Children learn through play, storytelling, and hands-on experiences. We provide a safe, caring, and engaging atmosphere where every child feels happy and secure. Our goal is to build a strong foundation for your child’s future learning journey.</p>
+                <p style="font-size: 1.15rem; line-height: 1.5; margin-top: 1rem;">At Rainbow Play School, we believe every child is unique and deserves a joyful learning environment. Our school focuses on nurturing creativity, confidence, and curiosity in young minds. We teach alphabets, numbers, and abacus basics through fun and interactive activities. Children learn through play, storytelling, and hands-on experiences. We provide a safe, caring, and engaging atmosphere where every child feels happy and secure. Our goal is to build a strong foundation for your child's future learning journey.</p>
             </div>
         </section>
 
@@ -346,16 +420,16 @@
             </div>
         </section>
 
-        <!-- PLAYING ACTIVITIES with SWIPER SLIDER (activity1,2,3.jpg) -->
+        <!-- PLAYING ACTIVITIES with SWIPER SLIDER - enhanced auto slide effect -->
         <section>
             <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem;">🎈 Fun Learning Activities</h2>
             <p style="margin-bottom: 1.8rem;">Creative play, storytelling, music, and abacus – every day is an adventure!</p>
             <div class="glass-card" style="padding: 1.2rem;">
                 <div class="swiper activitySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="activity1.jpg" alt="Kids activity 1" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+1'"></div>
-                        <div class="swiper-slide"><img src="activity2.jpg" alt="Kids activity 2" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+2'"></div>
-                        <div class="swiper-slide"><img src="activity3.jpg" alt="Kids activity 3" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+3'"></div>
+                        <div class="swiper-slide"><img src="activity1.jpg" alt="Kids creative activity" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+1'"></div>
+                        <div class="swiper-slide"><img src="activity2.jpg" alt="Kids playing together" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+2'"></div>
+                        <div class="swiper-slide"><img src="activity3.jpg" alt="Fun learning session" onerror="this.src='https://placehold.co/800x500/FFE6CF/CC8855?text=Activity+3'"></div>
                     </div>
                     <div class="swiper-pagination"></div>
                     <div class="swiper-button-next"></div>
@@ -418,51 +492,11 @@
             </div>
         </section>
 
-        <!-- Contact Details section -->
+        <!-- Contact Details section - FIXED buttons arrangement and phone icon -->
         <section id="contact">
             <div class="glass-card" style="padding: 2rem; text-align: center;">
                 <h2 style="font-size: 2rem;">📞 Get in Touch</h2>
                 <p style="margin: 1rem 0;"><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Somandepalli, Penukonda, Sri Satya Sai District - 515110</p>
                 <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> +91 8519854024</p>
                 <p><i class="fas fa-envelope"></i> <strong>Email:</strong> rainbowplayschool@kidzjoy.com</p>
-                <div style="margin-top: 1.5rem;">
-                    <a href="https://wa.me/918519854024?text=Hello%20Rainbow%20Play%20School%2C%20I%27m%20interested%20in%20admission." target="_blank" class="btn-premium" style="background:#25D366; margin-right: 0.5rem;"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
-                    <a href="tel:+918519854024" class="btn-outline-light"><i class="fas fa-phone"></i> Call Now</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>🌈 Rainbow Play School — Where Little Stars Shine Bright 🌈</p>
-            <p style="font-size: 0.8rem; margin-top: 0.5rem;">© 2025 | Somandepalli, Penukonda | Nurturing young minds with love & care</p>
-        </div>
-    </footer>
-
-    <!-- Floating Action Buttons: Call & WhatsApp -->
-    <div class="floating-buttons">
-        <a href="tel:+918519854024" class="float-btn call" title="Call Now"><i class="fas fa-phone-alt"></i></a>
-        <a href="https://wa.me/918519854024?text=Hello%20Rainbow%20Play%20School%2C%20I'd%20like%20to%20know%20about%20admissions." target="_blank" class="float-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    </div>
-</div>
-
-<script>
-    // Initialize Swiper Slider for activities
-    const swiper = new Swiper('.activitySwiper', {
-        loop: true,
-        autoplay: { delay: 2800, disableOnInteraction: false },
-        pagination: { el: '.swiper-pagination', clickable: true },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-        slidesPerView: 1,
-        spaceBetween: 20,
-        breakpoints: {
-            768: { slidesPerView: 2, spaceBetween: 24 },
-            1024: { slidesPerView: 3, spaceBetween: 30 }
-        }
-    });
-
-    // ADMISSION FORM -> AUTO SEND TO WHATSAPP (without opening WA compose for user)
-    // We'll use the WhatsApp API via window.open but to truly auto-send without manual "send" button?
-    // Since WhatsApp Web requires user to hit send, but we can compose pre-filled message and the user just clicks send (one tap)
-    // But requirement: "after filling form and click submit, details should appear on WhatsApp with provided mobile number, no need to open WA and send again, once click submit button details a
+                <!-- Fixed but
